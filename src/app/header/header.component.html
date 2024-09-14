@@ -1,0 +1,47 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+        <div class="logo">
+          <img src="assets/library.png" class="logo" alt="">
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <div class="menu-icon" (click)="openMenu()">
+          <i class="{{menu_icon}}"></i>
+        </div>
+        <div class="desktop_menu" [class.mobile_menu]="menuValue">
+          <ul>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-solid fa-link"></i> Ссылки</li>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-solid fa-address-book"></i> Контакты</li>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-solid fa-hashtag"></i> Теги</li>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-regular fa-star"></i> Избранное</li>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-solid fa-clock-rotate-left"></i> Посещения</li>
+<!--            <input type="text" class="col-md-7" *ngIf="searchClicked" placeholder="Search..">-->
+            <li *ngIf="!searchClicked" (click)="clickLupa()">
+              <i class="fa-solid fa-magnifying-glass"></i></li>
+            <li *ngIf="!searchClicked" (click)="closeMenu()">
+              <i class="fa-solid fa-add"></i></li>
+          </ul>
+        </div>
+
+        <div class="search-container" [ngClass]="{ 'show': searchClicked }">
+          <input type="text" class="search-bar" placeholder="Search..." />
+          <button class="search-button">Search</button>
+          <button class="search-close" (click)="clickLupa()">X</button>
+        </div>
+
+        <div class="search-modal" *ngIf="searchClicked">
+          <div class="search-modal-content">
+            <h4>Различные фильтры</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
